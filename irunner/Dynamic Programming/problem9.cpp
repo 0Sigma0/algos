@@ -20,7 +20,7 @@ int LDS(int line[], int n) {
     }
     
     for(int i=0; i<n; i++) {
-        if(f[i] >= ans)
+        if(f[i] > ans)
             ans = f[i];
     }
     return ans + 1;

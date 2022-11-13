@@ -3,19 +3,17 @@
 #include <algorithm>
 
 int LDS(int line[], int n) {
-    int ans = 0;
+    int ans = -1;
     int *f = new int[n];
     for(int i=0; i<n; i++) {
-        f[i] = 0;
+        f[i] = 1;
     }
     
     for(int i=0; i<n; i++) {
         for(int j=0; j<i; j++) {
-            int kappa;
-            if(line[j] != 0) kappa = line[i] % line[j];
-            else continue;
-            if(line[i] % line[j] == 0 && 1 + f[j] > f[i])
-                f[i] = 1 + f[j];
+            if(line[j] != 0 && line[i] % line[j] == 0) {
+                f[i] = std::max(f[i], f[j] + 1);
+            }
         }
     }
     
@@ -23,7 +21,7 @@ int LDS(int line[], int n) {
         if(f[i] > ans)
             ans = f[i];
     }
-    return ans + 1;
+    return ans;
 }
 
 int main() {
@@ -40,15 +38,17 @@ int main() {
     
     for(int i=0; i<n; i++) {
         if(line[i] == 0) {
-            add = 1;
-            break;
+            add += 1;
         }
     }
+    
+    if(add == n) add = 0;
+    else if(add != 0) add = 1;
     std::sort(line, line + n);
     std::ofstream output("output.txt");
-    output << LDS(line, n) + add;
+    if(n == 0) output << 0;
+    else output << LDS(line, n) + add;
     input.close();
     output.close();
 }
-
 

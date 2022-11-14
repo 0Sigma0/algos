@@ -11,9 +11,8 @@ int LDS(int line[], int n) {
     
     for(int i=0; i<n; i++) {
         for(int j=0; j<i; j++) {
-            if(line[j] != 0 && line[i] % line[j] == 0) {
+            if(line[j] != 0 && line[i] % line[j] == 0)
                 f[i] = std::max(f[i], f[j] + 1);
-            }
         }
     }
     

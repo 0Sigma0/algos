@@ -15,7 +15,7 @@ int main() {
     }
     for(int i=1; i<numOfNodes+1; i++) {
         output << AdjList[i].size();
-        for(auto x : AdjList[i]) {
+        for(const auto& x : AdjList[i]) {
             output << " " << x;
         }
         output << '\n';

@@ -60,8 +60,8 @@ int main() {
         for(int u : numOfSameSums) std::cout << u << " ";
         std::cout << "\n";
         
-        for(int j = i - 1; j > -1; j--) {
-            int toRemove = nums[i] + nums[j];
+        for(int u : nums) {
+            int toRemove = nums[i] + u;
             if(numOfSameSums[toRemove] == 2) {
                 pairSums.erase(std::remove(pairSums.begin(), pairSums.end(), toRemove), pairSums.end());
                 numOfSameSums[toRemove] = 0;

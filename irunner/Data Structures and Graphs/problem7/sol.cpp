@@ -53,7 +53,7 @@ int main() {
     for(int u : bruh) std::cout << u << " ";
     int max = *max_element(bruh.begin(), bruh.end());
     int min = *min_element(bruh.begin(), bruh.end());
-    if(float(max) / float(min) > 2) {
+    if((float)max / min > 2) {
         output << "NO";
     } else {
         if(numOfStudents == 2){ 

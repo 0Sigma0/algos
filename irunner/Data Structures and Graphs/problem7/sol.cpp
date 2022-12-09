@@ -2,8 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-bool is_bipartite = true;
-
 int invert(int c) {
     return c == 1 ? 2 : 1;
 }
